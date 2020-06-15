@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome Kit -->
+    <script
+      src="https://kit.fontawesome.com/e1cea54b71.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Weather Dashboard</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <div id="header" class="text-center bg-dark">
+      <h1>Weather Dashbord</h1>
+    </div>
+    <div class="row">
+      <!-- Search Panel -->
+      <div id="searchPanel">
+        <label>
+          <h4>Search for City:</h4>
+        </label>
+        <div id="inputGroup">
+          <input id="searchInput" type="text" />
+          <!-- Search Button -->
+          <button
+            id="searchBtn"
+            class="btn searchBtn"
+            data-toggle="tooltip"
+            title="Search"
+          >
+            <i class="fas fa-search"></i>
+          </button>
+          <!-- Clear History Button -->
+          <button
+            id="clear"
+            class="btn clearBtn"
+            data-toggle="tooltip"
+            title="Clear Search History"
+          >
+            <i class="fas fa-times-circle"></i>
+          </button>
+        </div>
+        <!-- Prepended City searches -->
+        <div id="searches"></div>
+      </div>
+      <!-- Main Content of the page -->
+      <div id="mainContent" class="col">
+        <!-- Current Weather -->
+        <div id="currentWeather">
+          <h3>Search for a City of select a previously searched City.</h3>
+        </div>
+        <!-- Forecast -->
+        <div id="forecast"></div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Added Ajax -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </body>
+</html>
