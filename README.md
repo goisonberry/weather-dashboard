@@ -28,8 +28,8 @@ The difficult part of this code was not realizing that the API pulls were coming
 
 ## Image of application
 
-[Weather Dashboard](images/weatherDashboard.PNG)
+![Weather Dashboard](images/weatherDashboard.PNG)
 
 ## Link to deployable application
 
-[!Weather Dashboard](https://goisonberry.github.io/weather-dashboard/)
+[Weather Dashboard](https://goisonberry.github.io/weather-dashboard/)
