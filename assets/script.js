@@ -11,9 +11,11 @@ var storedSearches = getStoredSearches();
 var addedCity = newCity();
 //unit variables for future development of switching between unit systems.
 const metricUnits = { deg: "C", speed: "KPH" };
+// Will use imperial units for this code to be more relevant while using in the US.
 const impUnits = { deg: "F", speed: "MPH" };
 var units = impUnits;
 
+// Build a function for the search field.
 function init() {
   //enable tooltips
   $(function () {
@@ -27,7 +29,6 @@ function init() {
   }
 
   searchInput.on("keyup", function (event) {
-    // "13" represents the enter key
     if (event.key === "Enter") {
       searchButtonClicked();
     }
@@ -56,14 +57,16 @@ function buildSearchHistory() {
   }
 }
 
+// Function for what the search button will do when clicked.
 function searchButtonClicked() {
   let cityVal = searchInput.val().trim();
   let city = newCity(cityVal, null);
   getWeather(city);
-  //clear the value once the search is activated
+  //This will clear the value once the search is activated
   searchInput.val("");
 }
 
+// This will allow to pull and set current and forecast weather.
 function getWeather(city) {
   addedCity = city;
   let queryURLCurrent = "";
@@ -101,6 +104,7 @@ function getWeather(city) {
   performAPIGETCall(queryURLForecast, buildForecastWeather);
 }
 
+// This will pull, set and display main weather card
 function buildCurrentWeather(data) {
   //console.log(data);
   if (data != null) {
@@ -164,6 +168,7 @@ function buildCurrentWeather(data) {
   }
 }
 
+// This will build the UV Index and display on the main card
 function buildUV(data) {
   if (data != null) {
     let UVIndex = data.value;
@@ -173,7 +178,7 @@ function buildUV(data) {
     let textColor = null;
     let borderColor = null;
 
-    //determine severity of UV Index for color coding
+    //This will determine severity of UV Index for color coding
     if (UVIndex < 2) {
       UVbg = "green";
       textColor = "white";
@@ -212,6 +217,7 @@ function buildUV(data) {
   }
 }
 
+// This will build the forecast elements for the next 5 days.
 function buildForecastWeather(data) {
   if (data != null) {
     forecastDiv.empty();
@@ -230,10 +236,10 @@ function buildForecastWeather(data) {
     alert("Something went wrong getting forecast data, please try again");
   }
 }
-//for now arbitrarily starts at the index 5/40 of returned results as it is in 3 hour intervals
+
 function parseDailyData(data) {
   let dailyData = [];
-  //increments by 8 due to 8 * 3 hours = 1 day
+
   for (var i = 5; i < data.list.length; i += 8) {
     let dataList = data.list[i];
 
@@ -250,6 +256,7 @@ function parseDailyData(data) {
   return dailyData;
 }
 
+// This will take the previous forecast function and help build the actual card that will display in the app
 function buildForecastCard(day) {
   let dayCard = $("<div>").attr("class", "dayCard col-12 col-md-5 col-lg-2");
 
@@ -269,6 +276,7 @@ function buildForecastCard(day) {
   return dayCard;
 }
 
+// This will allow for a new search to be done.
 function addNewSearch(city) {
   //console.log(city, storedSearches);
   if (storedSearches == null) {
@@ -287,10 +295,9 @@ function clearSearches() {
   searchesDiv.empty();
   storedSearches = null;
 }
-//get started
 init();
 
-//helper functions
+// Now this is where everything starts to happen.
 function getDayOfWeek(date) {
   return moment.unix(parseInt(date)).format("dddd");
 }
